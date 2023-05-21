@@ -1,0 +1,39 @@
+{
+    "id": 393,
+    "uid": "5b79ade1-e6b3-4c04-aa3f-af556b6ff080",
+    "password": "M4EJ2y7mLT",
+    "first_name": "Audrey",
+    "last_name": "Schimmel",
+    "username": "audrey.schimmel",
+    "email": "audrey.schimmel@email.com",
+    "avatar": "https://robohash.org/totamerroranimi.png?size=300x300&set=set1",
+    "gender": "Genderfluid",
+    "phone_number": "+216 1-908-192-0403 x87023",
+    "social_insurance_number": "177287760",
+    "date_of_birth": "1990-01-17",
+    "employment": {
+    "title": "Global Designer",
+    "key_skill": "Leadership"
+    },
+    "address": {
+    "city": "Medhurstview",
+    "street_name": "Cole Shoal",
+    "street_address": "27094 Lala Bridge",
+    "zip_code": "67587",
+    "state": "Michigan",
+    "country": "United States",
+    "coordinates": {
+    "lat": -58.20831350779876,
+    "lng": 84.07323748770193
+    }
+    },
+    "credit_card": {
+    "cc_number": "6771-8926-5659-5216"
+    },
+    "subscription": {
+    "plan": "Diamond",
+    "status": "Pending",
+    "payment_method": "Credit card",
+    "term": "Full subscription"
+    }
+    }
