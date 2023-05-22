@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:rive/rive.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -15,8 +16,15 @@ class HomeView extends GetView<HomeController> {
           // TODO: show assets/loading_new.riv animation while loadin data from the web, show no data text on app initial load
           Obx(
         () => controller.isloading.value
-            ? const Center(
-                child: CircularProgressIndicator(),
+            ? Center(
+                child: SizedBox(
+                  width: Get.width * 0.4,
+                  height: Get.width * 0.4,
+                  child: const RiveAnimation.asset(
+                    'assets/animation/loading_new.riv',
+                    fit: BoxFit.cover,
+                  ),
+                ),
               )
             // ignore: deprecated_member_use
             : controller.data.isNull
@@ -37,8 +45,31 @@ class HomeView extends GetView<HomeController> {
                           controller.data!.avatar!,
                           width: 150,
                           height: 150,
+                          //loadingbuilder with percentage
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) return child;
+                            return Container(
+                              alignment: Alignment.centerLeft,
+                              width: 150 / 2,
+                              height: 150,
+                              child: CircularProgressIndicator(
+                                value: loadingProgress.expectedTotalBytes !=
+                                        null
+                                    ? loadingProgress.cumulativeBytesLoaded /
+                                        loadingProgress.expectedTotalBytes!
+                                    : null,
+                              ),
+                            );
+                          },
                           errorBuilder: (context, error, stackTrace) =>
-                              const Icon(Icons.error),
+                              Container(
+                                  alignment: Alignment.centerLeft,
+                                  width: 150,
+                                  height: 15,
+                                  child: const Icon(
+                                    Icons.error,
+                                    size: 100,
+                                  )),
                         ),
                         const SizedBox(height: 40),
                         // TODO: use first_name & last_name fields from json
